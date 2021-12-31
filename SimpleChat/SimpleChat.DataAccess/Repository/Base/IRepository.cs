@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace SimpleChat.DataAccess.Repository.Base
 {
@@ -9,12 +10,12 @@ namespace SimpleChat.DataAccess.Repository.Base
         where TEntity : BaseEntity<TKey>
         where TKey : struct
     {
-        TKey InsertAndGetId(TEntity entity);
-        void Insert(TEntity entity);
+        Task<TKey> InsertAndGetIdAsync(TEntity entity);
+        Task InsertAsync(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
         void Delete(TKey id);
-        TEntity GetById(TKey id);
+        Task<TEntity> GetByIdAsync(TKey id);
         IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> expression);
     }
 }

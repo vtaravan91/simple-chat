@@ -4,6 +4,7 @@ using SimpleChat.DataAccess.Entities.Base;
 using SimpleChat.DataAccess.Repository.Base;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SimpleChat.DataAccess.Repository
 {
@@ -40,9 +41,9 @@ namespace SimpleChat.DataAccess.Repository
             _repositories = new Dictionary<string, object>();
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         private bool disposed = false;

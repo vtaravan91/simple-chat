@@ -1,5 +1,6 @@
 ﻿using SimpleChat.DataAccess.Entities.Base;
 using System;
+using System.Threading.Tasks;
 
 namespace SimpleChat.DataAccess.Repository.Base
 {
@@ -8,6 +9,6 @@ namespace SimpleChat.DataAccess.Repository.Base
         IRepository<TEntity, TKey> Repository<TEntity, TKey>()
             where TEntity : BaseEntity<TKey>
             where TKey : struct;
-        void Save();
+        Task SaveAsync();
     }
 }

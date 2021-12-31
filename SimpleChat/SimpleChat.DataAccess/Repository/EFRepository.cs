@@ -5,6 +5,7 @@ using SimpleChat.DataAccess.Repository.Base;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace SimpleChat.DataAccess.Repository
 {
@@ -47,21 +48,21 @@ namespace SimpleChat.DataAccess.Repository
             return query;
         }
 
-        public TEntity GetById(TKey id)
+        public async Task<TEntity> GetByIdAsync(TKey id)
         {
-            return _dbSet.Find(id);
+            return await _dbSet.FindAsync(id);
         }
 
-        public void Insert(TEntity entity)
+        public async Task InsertAsync(TEntity entity)
         {
             entity.CreationDate = DateTime.UtcNow;
 
-            _dbSet.Add(entity);
+            await _dbSet.AddAsync(entity);
         }
 
-        public TKey InsertAndGetId(TEntity entity)
+        public async Task<TKey> InsertAndGetIdAsync(TEntity entity)
         {
-            var changeTracking = _dbSet.Add(entity);
+            var changeTracking = await _dbSet.AddAsync(entity);
 
             return changeTracking.Entity.Id;
         }
