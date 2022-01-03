@@ -1,4 +1,7 @@
 ﻿using Autofac;
+using AutoMapper;
+using SimpleChat.BusinessLogic.Services;
+using SimpleChat.BusinessLogic.Services.Interfaces;
 
 namespace SimpleChat.BusinessLogic.Configuration
 {
@@ -6,6 +9,8 @@ namespace SimpleChat.BusinessLogic.Configuration
     {
         public static void RegisterTypes(this ContainerBuilder builder)
         {
+            builder.RegisterType<UserService>().As<IUserService>().InstancePerDependency();
+            builder.RegisterType<TypeMapper>().As<Profile>();
         }
     }
 }
