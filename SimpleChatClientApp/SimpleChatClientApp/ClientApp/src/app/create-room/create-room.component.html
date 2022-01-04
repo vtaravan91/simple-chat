@@ -1,0 +1,5 @@
+﻿<form (ngSubmit)="createRoom()">
+    <label for="roomName">Please enter room name</label>
+    <input type="text" name="roomName" [(ngModel)]="room.name" placeholder="Room name" />
+    <button type="submit">Create</button>
+</form>

@@ -1,0 +1,5 @@
+﻿<form (ngSubmit)="createUser()">
+    <label for="nickname">Please enter your nickname</label>
+    <input type="text" name="nickname" [(ngModel)]="user.nickname" placeholder="nickname" />
+    <button type="submit">Create</button>
+</form>

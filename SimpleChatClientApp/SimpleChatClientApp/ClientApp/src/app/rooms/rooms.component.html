@@ -1,0 +1,23 @@
+﻿<div>
+    <h2>Rooms</h2>
+
+    <table>
+        <tr>
+            <td>
+                <nav>
+                    <a routerLink="/create-room">Create Room</a>
+                </nav>
+                <ul class="rooms">
+                    <li *ngFor="let room of rooms; trackBy: trackRoomItem">
+                        <a [routerLink]="['./room', room.id]"><span>{{room.name}}</span></a>
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <div>
+                    <router-outlet></router-outlet>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

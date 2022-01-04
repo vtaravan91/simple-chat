@@ -1,0 +1,14 @@
+﻿<div>
+    <button type="button" (click)="enterRoom()" *ngIf="!userInRoom">Enter room</button>
+    <ul>
+
+        <li *ngFor="let message of messages">
+            <span>{{message.user.nickname}}</span>
+            <span>{{message.message}}</span>
+        </li>
+    </ul>
+    <form (ngSubmit)="sendMessage()" *ngIf="userInRoom">
+        <textarea name="message" [(ngModel)]="message"></textarea>
+        <button type="submit">Send</button>
+    </form>
+</div>
