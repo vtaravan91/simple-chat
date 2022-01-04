@@ -10,6 +10,8 @@ namespace SimpleChat.BusinessLogic.Configuration
         public static void RegisterTypes(this ContainerBuilder builder)
         {
             builder.RegisterType<UserService>().As<IUserService>().InstancePerDependency();
+            builder.RegisterType<RoomService>().As<IRoomService>().InstancePerDependency();
+            builder.RegisterType<MessageService>().As<IMessageService>().InstancePerDependency();
             builder.RegisterType<TypeMapper>().As<Profile>();
         }
     }

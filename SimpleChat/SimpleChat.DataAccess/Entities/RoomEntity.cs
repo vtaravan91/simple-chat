@@ -7,7 +7,7 @@ namespace SimpleChat.DataAccess.Entities
     {
         [Required]
         [MinLength(2)]
-        [MaxLength(256)]       
+        [MaxLength(256)]
         public string Name { get; set; }
     }
 }

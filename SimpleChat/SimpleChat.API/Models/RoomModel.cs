@@ -2,13 +2,14 @@
 
 namespace SimpleChat.API.Models
 {
-    public class UserModel
+    public class RoomModel
     {
         public int? Id { get; set; }
 
         [Required]
         [MinLength(2)]
-        [MaxLength(50)]
-        public string Nickname { get; set; }
+        [MaxLength(256)]
+        public string Name { get; set; }
+        public bool? UserInRoom { get; set; }
     }
 }

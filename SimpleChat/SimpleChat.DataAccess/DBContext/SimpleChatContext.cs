@@ -8,6 +8,7 @@ namespace SimpleChat.DataAccess.DBContext
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<RoomEntity> Rooms { get; set; }
         public DbSet<MessageEntity> Messages { get; set; }
+        public DbSet<UserRoomEntity> UserRooms { get; set; }
         public SimpleChatContext(DbContextOptions<SimpleChatContext> options)
             : base(options)
         {

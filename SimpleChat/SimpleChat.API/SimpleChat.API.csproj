@@ -15,9 +15,5 @@
     <ProjectReference Include="..\SimpleChat.BusinessLogic\SimpleChat.BusinessLogic.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Hubs\" />
-  </ItemGroup>
-
 
 </Project>

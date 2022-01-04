@@ -11,6 +11,7 @@ namespace SimpleChat.BusinessLogic.Configuration
             CreateMap<UserDto, UserEntity>().ReverseMap();
             CreateMap<MessageDto, MessageEntity>().ReverseMap();
             CreateMap<RoomDto, RoomEntity>().ReverseMap();
+            CreateMap<UserRoomDto, UserRoomEntity>().ReverseMap();
         }
     }
 }

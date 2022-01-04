@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimpleChat.API.Models;
 using SimpleChat.BusinessLogic.Dtos;
@@ -21,6 +22,8 @@ namespace SimpleChat.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> PostAsync(UserModel user)
         {
             if (ModelState.IsValid)
@@ -28,7 +31,7 @@ namespace SimpleChat.API.Controllers
                 var userDto = _mapper.Map<UserDto>(user);
                 var createdUser = await _userService.CreateUserAsync(userDto);
 
-                return Ok(createdUser);
+                return Ok(_mapper.Map<UserModel>(createdUser));
             }
 
             return BadRequest();
